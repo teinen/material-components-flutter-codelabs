@@ -40,11 +40,12 @@ class _LoginPageState extends State<LoginPage> {
             ),
             SizedBox(height: 120.0),
             // TODO: Wrap Username with AccentColorOverride (103)
-            // TODO: Remove filled: true values (103)
             // TODO: Wrap Password with AccentColorOverride (103)
             // [Username]
             TextField(
-              decoration: InputDecoration(filled: true, labelText: 'Username'),
+              decoration: InputDecoration(
+                labelText: 'Username',
+              ),
               controller: _usernameController,
             ),
             SizedBox(
@@ -53,7 +54,6 @@ class _LoginPageState extends State<LoginPage> {
             // [Password]
             TextField(
               decoration: InputDecoration(
-                filled: true,
                 labelText: 'Password',
               ),
               obscureText: true,
