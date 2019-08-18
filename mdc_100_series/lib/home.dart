@@ -18,6 +18,8 @@ import 'package:intl/intl.dart';
 import 'model/products_repository.dart';
 import 'model/product.dart';
 
+import 'supplemental/asymmetric_view.dart';
+
 class HomePage extends StatelessWidget {
   List<Card> _buildGridCards(BuildContext context) {
     List<Product> products = ProductsRepository.loadProducts(Category.all);
@@ -81,6 +83,7 @@ class HomePage extends StatelessWidget {
     // TODO: Pass Category variable to AsymmetricView (104)
     return Scaffold(
       appBar: AppBar(
+        brightness: Brightness.light,
         title: Text('SHRINE'),
         leading: IconButton(
           icon: Icon(
@@ -112,11 +115,8 @@ class HomePage extends StatelessWidget {
           )
         ],
       ),
-      body: GridView.count(
-        crossAxisCount: 2,
-        padding: EdgeInsets.all(16.0),
-        childAspectRatio: 8.0 / 9.0,
-        children: _buildGridCards(context),
+      body: AsymmetricView(
+        products: ProductsRepository.loadProducts(Category.all),
       ),
       resizeToAvoidBottomInset: true,
     );
